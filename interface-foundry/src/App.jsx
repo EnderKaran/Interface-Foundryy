@@ -1,16 +1,20 @@
-import './App.css'
-import "tailwindcss";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HomePage } from './pages/HomePage';
+import { ComponentDetailPage } from './pages/ComponentDetailPage';
+
+import './App.css';
+
 
 function App() {
-  
-
   return (
-    <div className="bg-slate-900 h-screen flex justify-center items-center">
-      <h1 className="text-3xl font-bold underline text-cyan-400">
-        Merhaba, Interface Foundry!
-      </h1>
-    </div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+               
+        <Route path="/component/3d-card" element={<ComponentDetailPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
