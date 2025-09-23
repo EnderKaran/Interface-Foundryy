@@ -10,7 +10,6 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build -o dist/storybook",
-
     "predeploy": "npm run build && npm run build-storybook",
     "deploy": "gh-pages -d dist"
   },
