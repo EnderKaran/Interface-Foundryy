@@ -61,6 +61,7 @@ export function ComponentDetailPage() {
                 <Tabs tabs={allComponents} />
             </div>
 
+            
         </div>
     );
 }
