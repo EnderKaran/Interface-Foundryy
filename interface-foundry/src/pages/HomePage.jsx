@@ -3,7 +3,9 @@ import { motion } from "framer-motion";
 import { Link } from 'react-router-dom'; 
 import { BentoGrid, BentoGridItem } from "../components/ui/bento-grid";
 
-import efektlicardsayfasi from '../assets/3d-efektli-card-sayfasi.png';
+import efektliCardSayfasi from '../assets/3d-efektli-card-sayfasi.png';
+
+import productConfiguratorPage from '../assets/product-configurator-page.png';
 
 const components = [
   {
@@ -11,33 +13,40 @@ const components = [
     description: "Fare hareketini takip ederek derinlik hissi veren, göz alıcı bir kart bileşeni.",
     header: (
         <img 
-            src={efektlicardsayfasi} 
+            src={efektliCardSayfasi} 
             alt="3D Kart Önizleme"
             className="h-full w-full object-cover rounded-xl"
         />
     ),
-    className: "md:col-span-2",
+    className: "md:col-span-1",
     link: "/component/3d-card", 
   },
   {
     title: "İnteraktif Ürün Konfigüratörü",
     description: "Kullanıcıların bir ürünü 3D olarak döndürmesine ve renklerini canlı olarak değiştirmesine olanak tanır.",
-    header: <div className="bg-gray-800 rounded-xl h-full w-full flex items-center justify-center text-gray-400">Geliştiriliyor</div>,
-    className: "md:col-span-1",
-    link: "#", 
+    header: (
+        <img 
+            // DÜZELTME: Doğru değişken adı kullanıldı.
+            src={productConfiguratorPage} 
+            alt="Ürün Konfigüratör Önizleme"
+            className="h-full w-full object-cover rounded-xl"
+        />
+    ),
+    className: "md:col-span-2",
+    link: "/component/product-configurator", 
   },
   {
     title: "AI Destekli Arama",
     description: "Doğal dil işleme kullanarak anlamsal arama yapan akıllı bir arama çubuğu.",
     header: <div className="bg-gray-800 rounded-xl h-full w-full flex items-center justify-center text-gray-400">Geliştiriliyor</div>,
-    className: "md:col-span-1",
+    className: "md:col-span-2",
     link: "#", 
   },
   {
     title: "Dinamik Alışveriş Sepeti",
     description: "Modern animasyonlar ve anlık durum güncellemeleri ile akıcı bir kullanıcı deneyimi sunar.",
     header: <div className="bg-gray-800 rounded-xl h-full w-full flex items-center justify-center text-gray-400">Geliştiriliyor</div>,
-    className: "md:col-span-2",
+    className: "md:col-span-1",
     link: "#", 
   },
 ];
