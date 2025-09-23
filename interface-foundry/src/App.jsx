@@ -7,7 +7,7 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Interface-Foundry/">
       <Routes>
         <Route path="/" element={<HomePage />} />
                
