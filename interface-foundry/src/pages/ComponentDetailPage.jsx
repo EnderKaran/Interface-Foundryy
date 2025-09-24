@@ -8,7 +8,7 @@ import { ProfileCardShowcase } from '../components/showcase/ProfileCardShowcase'
 import { AlbumCardShowcase } from '../components/showcase/AlbumCardShowcase';
 
 export function ComponentDetailPage() {
-    const storybookUrl = `${import.meta.env.VITE_STORYBOOK_URL}/?path=/story/ui-3d-card--basic-usage`;
+    const storybookUrl = `${import.meta.env.VITE_STORYBOOK_URL}/?path=/docs/ui-bileşenleri-3d-kart--docs`;
 
     const allComponents = [
         {

@@ -2,14 +2,20 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HomePage } from './pages/HomePage';
 import { ComponentDetailPage } from './pages/ComponentDetailPage';
 import { ProductConfiguratorPage } from './pages/ProductConfiguratorPage';
+import { ShoppingCartPage } from './pages/ShoppingCartPage';
 import { AISearchPage } from './pages/AISearchPage';
+//Context importları
+import { CartProvider } from './context/CartContext';
+import { NotificationProvider } from './context/NotificationContext';
 
 import './App.css';
 
 
 function App() {
   return (
-    
+     <NotificationProvider>
+    <CartProvider>
+     
     <BrowserRouter basename="/Interface-Foundryy/">
       <Routes>
        
@@ -20,8 +26,13 @@ function App() {
         <Route path="/component/product-configurator" element={<ProductConfiguratorPage />} />
 
         <Route path="/component/ai-search" element={<AISearchPage />} />
+
+        <Route path="/component/shopping-cart" element={<ShoppingCartPage />} /> 
       </Routes>
     </BrowserRouter>
+      
+    </CartProvider>
+    </NotificationProvider>
   );
 }
 
