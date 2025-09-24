@@ -12,7 +12,7 @@ export function ProductConfiguratorPage() {
     ayakkabi: '#ffffff',
   });
     
-  const storybookUrl = `${import.meta.env.VITE_STORYBOOK_URL}/?path=/story/ui-3d-card--basic-usage`;
+  const storybookUrl = `${import.meta.env.VITE_STORYBOOK_URL}/?path=/docs/sayfalar-ürün-yapılandırıcı-sayfası--docs`;
 
   return (
     <div className="relative w-screen h-screen bg-gray-900">

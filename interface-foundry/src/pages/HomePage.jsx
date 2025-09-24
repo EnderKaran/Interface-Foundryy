@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 import { BentoGrid, BentoGridItem } from "../components/ui/bento-grid";
 
 import efektliCardSayfasi from '../assets/3d-efektli-card-sayfasi.png';
-
 import productConfiguratorPage from '../assets/product-configurator-page.png';
-
 import aiPage from '../assets/ai-page.png';
+import shoppingcartPage from '../assets/shopping-cart-page.png';
 
 const components = [
   {
@@ -42,7 +41,6 @@ const components = [
     description: "Doğal dil işleme kullanarak anlamsal arama yapan akıllı bir arama çubuğu.",
     header: (
         <img 
-            // DÜZELTME: Doğru değişken adı kullanıldı.
             src={aiPage} 
             alt="Ürün Konfigüratör Önizleme"
             className="h-full w-full object-cover rounded-xl"
@@ -54,9 +52,15 @@ const components = [
   {
     title: "Dinamik Alışveriş Sepeti",
     description: "Modern animasyonlar ve anlık durum güncellemeleri ile akıcı bir kullanıcı deneyimi sunar.",
-    header: <div className="bg-gray-800 rounded-xl h-full w-full flex items-center justify-center text-gray-400">Geliştiriliyor</div>,
+    header: (
+        <img 
+            src={shoppingcartPage} 
+            alt="Ürün Konfigüratör Önizleme"
+            className="h-full w-full object-cover rounded-xl"
+        />
+    ),
     className: "md:col-span-1",
-    link: "#", 
+    link: "/component/shopping-cart", 
   },
 ];
 
