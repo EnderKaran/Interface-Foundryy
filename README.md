@@ -110,6 +110,7 @@ Proje dizinindeyken aşağıdaki komutları çalıştırabilirsiniz:
 
 Proje, modern React uygulamaları için standartlaşmış, ölçeklenebilir ve bakımı kolay bir klasör yapısı üzerine kurulmuştur. Sorumlulukların ayrılması (separation of concerns) ilkesi benimsenmiştir.
 
+```
 /
 ├── .storybook/         # Storybook için yapılandırma dosyaları
 ├── public/             # Statik dosyalar (favicon, robots.txt vb.)
@@ -131,7 +132,7 @@ Proje, modern React uygulamaları için standartlaşmış, ölçeklenebilir ve b
 ├── package.json        # Proje bağımlılıkları ve script'leri
 ├── tailwind.config.js  # Tailwind CSS yapılandırması
 └── vite.config.js      # Vite için ana yapılandırma dosyası
-
+```
 ---
 
 **Not:** `package.json` dosyanızdaki `homepage` alanında `Interface-Foundryy` (çift 'y' ile) yazıyor. GitHub Pages dağıtımının doğru çalışması için bunu `Interface-Foundry` olarak düzeltmeniz önerilir.
