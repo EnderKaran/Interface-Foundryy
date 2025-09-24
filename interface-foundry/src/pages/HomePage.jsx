@@ -7,6 +7,8 @@ import efektliCardSayfasi from '../assets/3d-efektli-card-sayfasi.png';
 
 import productConfiguratorPage from '../assets/product-configurator-page.png';
 
+import aiPage from '../assets/ai-page.png';
+
 const components = [
   {
     title: "3D Efektli Kart",
@@ -38,9 +40,16 @@ const components = [
   {
     title: "AI Destekli Arama",
     description: "Doğal dil işleme kullanarak anlamsal arama yapan akıllı bir arama çubuğu.",
-    header: <div className="bg-gray-800 rounded-xl h-full w-full flex items-center justify-center text-gray-400">Geliştiriliyor</div>,
+    header: (
+        <img 
+            // DÜZELTME: Doğru değişken adı kullanıldı.
+            src={aiPage} 
+            alt="Ürün Konfigüratör Önizleme"
+            className="h-full w-full object-cover rounded-xl"
+        />
+    ),
     className: "md:col-span-2",
-    link: "#", 
+    link: "/component/ai-search", 
   },
   {
     title: "Dinamik Alışveriş Sepeti",
