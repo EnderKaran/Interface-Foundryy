@@ -9,10 +9,10 @@ Title: CONVERSE SHOE
 
 import React from 'react'
 import { useGLTF } from '@react-three/drei'
-import modelUrl from './ayakkabi.glb' 
+import modelUrl from '../assets/ayakkabi.glb' 
 
 export function Ayakkabi({ customColors, ...props }) {
-  const { nodes, materials } = useGLTF({modelUrl})
+  const { nodes, materials } = useGLTF(modelUrl)
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]} scale={0.268}>
@@ -31,4 +31,4 @@ export function Ayakkabi({ customColors, ...props }) {
   )
 }
 
-useGLTF.preload({modelUrl})
+useGLTF.preload(modelUrl)
