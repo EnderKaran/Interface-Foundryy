@@ -1,15 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { HomePage } from './pages/HomePage';
-import { ComponentDetailPage } from './pages/ComponentDetailPage';
-import { ProductConfiguratorPage } from './pages/ProductConfiguratorPage';
-import { ShoppingCartPage } from './pages/ShoppingCartPage';
-import { AISearchPage } from './pages/AISearchPage';
+import { HomePage } from './pages/HomePage.jsx';
+import { ComponentDetailPage } from './pages/ComponentDetailPage.jsx';
+import { ProductConfiguratorPage } from './pages/ProductConfiguratorPage.jsx';
+import { ShoppingCartPage } from './pages/ShoppingCartPage.jsx';
+import { AISearchPage } from './pages/AISearchPage.jsx';
 //Context importları
-import { CartProvider } from './context/CartContext';
-import { NotificationProvider } from './context/NotificationContext';
-import { CommandPaletteProvider } from './context/CommandPaletteContext';
-import { CommandPalette } from './components/ui/CommandPalette';
-import { useGlobalHotKey } from './hooks/useGlobalHotKey';
+import { CartProvider } from './context/CartContext.jsx';
+import { NotificationProvider } from './context/NotificationContext.jsx';
+import { CommandPaletteProvider } from './context/CommandPaletteContext.jsx';
+import { CommandPalette } from './components/ui/CommandPalette.jsx';
+import { useGlobalHotKey } from './hooks/useGlobalHotKey.js';
 
 import './App.css';
 
