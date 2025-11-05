@@ -17,18 +17,18 @@ export function ProductConfiguratorPage() {
   return (
     <div className="relative w-screen h-screen bg-gray-900">
       <div className="absolute top-0 left-0 z-10 p-4">
-        <Link to="/" className="bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700">
+        <Link to="/" className="px-4 py-2 text-white bg-gray-800 rounded-lg hover:bg-gray-700">
           ← Ana Sayfa
         </Link>          
       </div>
-      <a href={storybookUrl} target="_blank" rel="noopener noreferrer" className="absolute top-6 right-6 md:top-8 md:right-8 flex items-center gap-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors z-20" title="Storybook'u Aç">
-            <SiStorybook className="text-pink-500 text-xl" />
+      <a href={storybookUrl} target="_blank" rel="noopener noreferrer" className="absolute z-20 flex items-center gap-2 px-4 py-2 text-white transition-colors bg-gray-800 rounded-lg top-6 right-6 md:top-8 md:right-8 hover:bg-gray-700" title="Storybook'u Aç">
+            <SiStorybook className="text-xl text-pink-500" />
             <span className="hidden sm:inline">Storybook</span>
       </a> 
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 p-4 bg-gray-800/50 backdrop-blur-sm rounded-t-lg flex flex-wrap justify-center gap-4">
+      <div className="absolute bottom-0 z-10 flex flex-wrap justify-center gap-4 p-4 -translate-x-1/2 rounded-t-lg left-1/2 bg-gray-800/50 backdrop-blur-sm">
         {Object.keys(activeColors).map((part) => (
           <div key={part} className="flex flex-col items-center gap-2">
-            <span className="text-white capitalize font-bold text-xs">{part}</span>
+            <span className="text-xs font-bold text-white capitalize">{part}</span>
             <div className="flex gap-1">
               {renkPaleti.map((color) => (
                 <div
