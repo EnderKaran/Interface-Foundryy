@@ -1,11 +1,12 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Link } from 'react-router-dom'; 
-import { useCommandPalette } from '../../context/CommandPaletteContext';
+import { Link, useNavigate } from 'react-router-dom';
+import { useCommandPalette } from '../../context/CommandPaletteContext.jsx';
 import { FaSearch, FaHome, FaCube, FaRobot, FaShoppingCart } from 'react-icons/fa';
 
 export const CommandPalette = () => {
   const { isOpen, closePalette } = useCommandPalette();
+  const navigate = useNavigate();
 
   const allActions = useMemo(() => [
     { title: 'Ana Sayfa', href: '/', icon: <FaHome /> },
@@ -16,27 +17,27 @@ export const CommandPalette = () => {
   ], []);
 
   const [query, setQuery] = useState('');
-  
   const [filteredActions, setFilteredActions] = useState(allActions);
+  
+  // Klavye ile gezinme için aktif indeksi tutan state
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  // Arama/filtreleme mantığı
+  const listRef = useRef(null);
+  const activeItemRef = useRef(null);
+
   const handleQueryChange = (e) => {
     const newQuery = e.target.value;
     setQuery(newQuery);
+    setActiveIndex(0);
 
     if (newQuery.trim() === '') {
-      // Arama kutusu boşsa, tüm listeyi göster
       setFilteredActions(allActions);
     } else {
       const searchWords = newQuery.toLowerCase().split(' ').filter(Boolean);
-
-      
       const results = allActions.filter(action => {
         const lowerCaseTitle = action.title.toLowerCase();
-        
         return searchWords.every(word => lowerCaseTitle.includes(word));
       });
-
       setFilteredActions(results);
     }
   };
@@ -47,11 +48,42 @@ export const CommandPalette = () => {
       const timer = setTimeout(() => {
         setQuery('');
         setFilteredActions(allActions);
+        setActiveIndex(0); 
       }, 200); 
       
       return () => clearTimeout(timer);
     }
   }, [isOpen, allActions]); 
+
+  
+  useEffect(() => {
+    if (activeItemRef.current) {
+      
+      activeItemRef.current.scrollIntoView({
+        block: 'nearest', 
+      });
+    }
+  }, [activeIndex]); 
+
+  const handleInputKeyDown = (e) => {
+    if (filteredActions.length === 0) return;
+
+    if (e.key === 'ArrowDown') {
+      e.preventDefault(); 
+      
+      setActiveIndex((prev) => (prev + 1) % filteredActions.length);
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault(); 
+      setActiveIndex((prev) => (prev - 1 + filteredActions.length) % filteredActions.length);
+    } else if (e.key === 'Enter') {
+      e.preventDefault(); 
+      const activeAction = filteredActions[activeIndex];
+      if (activeAction) {
+        navigate(activeAction.href); 
+        closePalette();
+      }
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -79,22 +111,30 @@ export const CommandPalette = () => {
                 type="text"
                 placeholder="Arayın veya komut yazın..."
                 value={query}
-                onChange={handleQueryChange} //  Filtreleme fonksiyonu
+                onChange={handleQueryChange}
+                onKeyDown={handleInputKeyDown} // Klavye olay dinleyicisi
                 className="w-full text-white bg-transparent placeholder:text-gray-500 focus:outline-none"
                 autoFocus
               />
             </div>
 
-            <ul className="p-2 max-h-[300px] overflow-y-auto">
+            <ul ref={listRef} className="p-2 max-h-[300px] overflow-y-auto">
               {filteredActions.length === 0 ? (
                 <li className="p-3 text-center text-gray-400">Sonuç bulunamadı.</li>
               ) : (
                 filteredActions.map((action, index) => (
-                  <li key={index}>
+                  <li 
+                    key={action.href} 
+                    ref={index === activeIndex ? activeItemRef : null} 
+                    className={`rounded-lg
+                      ${index === activeIndex ? 'bg-gray-800' : 'hover:bg-gray-800'}
+                    `}
+                    onMouseEnter={() => setActiveIndex(index)} 
+                  >
                     <Link
                       to={action.href}
                       onClick={closePalette}
-                      className="flex items-center gap-3 p-3 text-gray-200 transition-colors rounded-lg hover:bg-gray-800"
+                      className="flex items-center w-full h-full gap-3 p-3 text-gray-200"
                     >
                       <span className="text-gray-400">{action.icon}</span>
                       {action.title}

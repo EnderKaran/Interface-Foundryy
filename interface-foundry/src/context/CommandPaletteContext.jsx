@@ -1,9 +1,9 @@
 import React, { createContext, useState, useContext, useCallback } from 'react';
 
-
+// 1. Context
 const CommandPaletteContext = createContext(undefined);
 
-
+// 2. Provider
 export const CommandPaletteProvider = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -25,6 +25,7 @@ export const CommandPaletteProvider = ({ children }) => {
   );
 };
 
+// 3. Kolay kullanım için bir hook
 export const useCommandPalette = () => {
   const context = useContext(CommandPaletteContext);
   if (context === undefined) {
