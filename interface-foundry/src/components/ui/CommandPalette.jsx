@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCommandPalette } from '../../context/CommandPaletteContext.jsx';
-import { FaSearch, FaHome, FaCube, FaRobot, FaShoppingCart } from 'react-icons/fa';
+import { FaSearch, FaHome, FaCube, FaRobot, FaShoppingCart  , FaTasks } from 'react-icons/fa';
 
 export const CommandPalette = () => {
   const { isOpen, closePalette } = useCommandPalette();
@@ -14,6 +14,7 @@ export const CommandPalette = () => {
     { title: 'AI Destekli Arama', href: '/component/ai-search', icon: <FaRobot /> },
     { title: 'Ürün Yapılandırıcı', href: '/component/product-configurator', icon: <FaCube /> },
     { title: 'Alışveriş Sepeti', href: '/component/shopping-cart', icon: <FaShoppingCart /> },
+    { title: 'Kanban Panosu', href: '/component/kanban-board', icon: <FaTasks /> },
   ], []);
 
   const [query, setQuery] = useState('');

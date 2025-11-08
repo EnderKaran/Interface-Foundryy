@@ -7,6 +7,7 @@ import efektliCardSayfasi from '../assets/3d-efektli-card-sayfasi.png';
 import productConfiguratorPage from '../assets/product-configurator-page.png';
 import aiPage from '../assets/ai-page.png';
 import shoppingcartPage from '../assets/shopping-cart-page.png';
+import kanbanPage from '../assets/kanban-sayfasi.png'
 
 const components = [
   {
@@ -16,7 +17,7 @@ const components = [
         <img 
             src={efektliCardSayfasi} 
             alt="3D Kart Önizleme"
-            className="h-full w-full object-cover rounded-xl"
+            className="object-cover w-full h-full rounded-xl"
         />
     ),
     className: "md:col-span-1",
@@ -30,7 +31,7 @@ const components = [
             // DÜZELTME: Doğru değişken adı kullanıldı.
             src={productConfiguratorPage} 
             alt="Ürün Konfigüratör Önizleme"
-            className="h-full w-full object-cover rounded-xl"
+            className="object-cover w-full h-full rounded-xl"
         />
     ),
     className: "md:col-span-2",
@@ -43,7 +44,7 @@ const components = [
         <img 
             src={aiPage} 
             alt="Ürün Konfigüratör Önizleme"
-            className="h-full w-full object-cover rounded-xl"
+            className="object-cover w-full h-full rounded-xl"
         />
     ),
     className: "md:col-span-2",
@@ -56,7 +57,7 @@ const components = [
         <img 
             src={shoppingcartPage} 
             alt="Ürün Konfigüratör Önizleme"
-            className="h-full w-full object-cover rounded-xl"
+            className="object-cover w-full h-full rounded-xl"
         />
     ),
     className: "md:col-span-1",
@@ -66,17 +67,17 @@ const components = [
 
 export function HomePage() {
   return (
-    <div className="p-4 md:p-8 bg-black min-h-screen overflow-hidden">
+    <div className="min-h-screen p-4 overflow-hidden bg-black md:p-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeInOut" }}
-        className="text-center mb-12"
+        className="mb-12 text-center"
       >
-        <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
+        <h1 className="py-4 text-4xl font-bold text-transparent md:text-6xl bg-clip-text bg-gradient-to-b from-neutral-50 to-neutral-400">
           Interface Foundry
         </h1>
-        <p className="mt-2 text-lg text-neutral-300 max-w-2xl mx-auto">
+        <p className="max-w-2xl mx-auto mt-2 text-lg text-neutral-300">
           Fikirlerin interaktif deneyimlere dönüştüğü yer. Bu benim yaşayan bileşen kütüphanem.
         </p>
       </motion.div>
