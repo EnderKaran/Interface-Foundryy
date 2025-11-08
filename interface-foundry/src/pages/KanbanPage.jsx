@@ -28,10 +28,8 @@ export function KanbanPage() {
   const [activeDragColumnId, setActiveDragColumnId] = useState(null);
   const [activeDragColumnColor, setActiveDragColumnColor] = useState(null);
 
-  // Storybook URL'si
   const storybookUrl = `${import.meta.env.VITE_STORYBOOK_URL}/?path=/docs/sayfalar-kanban-görev-panosu--docs`;
 
-  // dnd-kit sensörleri
   const sensors = useSensors(
     useSensor(PointerSensor, {
       activationConstraint: {
@@ -40,7 +38,7 @@ export function KanbanPage() {
     })
   );
 
-  // --- Sürükleme Fonksiyonları ---
+  // --- Sürükleme Fonksiyonları (Değişiklik yok) ---
 
   function onDragStart(event) {
     const { data } = event.active;
@@ -147,14 +145,14 @@ export function KanbanPage() {
       onDragOver={onDragOver}
       onDragEnd={onDragEnd}
     >
-      <div className="relative min-h-screen p-8 text-white bg-black">
+      <div className="relative min-h-screen p-4 text-white bg-black md:p-8">
         
         {/* Storybook butonu */}
         <a 
           href={storybookUrl} 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="absolute z-20 flex items-center gap-2 px-4 py-2 text-white transition-colors bg-gray-800 rounded-lg top-8 right-8 hover:bg-gray-700" 
+          className="absolute z-20 flex items-center gap-2 px-4 py-2 text-white transition-colors bg-gray-800 rounded-lg top-4 right-4 md:top-8 md:right-8 hover:bg-gray-700" 
           title="Storybook'u Aç"
         >
           <SiStorybook className="text-xl text-pink-500" />
@@ -168,9 +166,7 @@ export function KanbanPage() {
         <h1 className="mb-12 text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-b from-neutral-50 to-neutral-400">
           Kanban Görev Panosu
         </h1>
-
-        {/* Kolonların Sıralanabilir Alanı */}
-        <div className="flex justify-center gap-4 p-4 overflow-x-auto">
+        <div className="flex gap-4 p-4 overflow-x-auto md:justify-center">
           <SortableContext items={columnOrder} strategy={horizontalListSortingStrategy}>
             {columnOrder.map(colId => (
               <Column

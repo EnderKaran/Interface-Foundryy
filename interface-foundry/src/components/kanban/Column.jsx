@@ -5,7 +5,7 @@ import { SortableContext, verticalListSortingStrategy, useSortable } from '@dnd-
 import { useDroppable } from '@dnd-kit/core';
 import { CSS } from '@dnd-kit/utilities';
 import { useKanban } from '../../context/KanbanContext';
-import { FaGripVertical } from "react-icons/fa"; // Sürükleme ikonu
+import { FaGripVertical } from "react-icons/fa";
 
 function useCombinedRefs(...refs) {
   return useMemo(() => (element) => {
@@ -25,8 +25,6 @@ export const Column = ({ column }) => {
   const [newTaskContent, setNewTaskContent] = useState('');
   const { addTask } = useKanban();
 
-  // --- dnd-kit Hook'ları ---
-
   const { setNodeRef: setDroppableRef, isOver } = useDroppable({
     id: column.id,
     data: { type: 'Column' }
@@ -38,7 +36,7 @@ export const Column = ({ column }) => {
     setNodeRef: setSortableRef,
     transform,
     transition,
-    isDragging, 
+    isDragging,
   } = useSortable({
     id: column.id,
     data: {
@@ -51,13 +49,10 @@ export const Column = ({ column }) => {
 
   const style = {
     transition,
-    
     transform: transform ? `translate3d(${transform.x}px, 0, 0)` : undefined,
   };
   
   const taskIds = column.tasks.map(task => task.id);
-
-  // --- Fonksiyonlar ---
 
   const handleAddTask = () => {
     if (newTaskContent.trim() === '') return setIsAddingTask(false);
@@ -73,25 +68,32 @@ export const Column = ({ column }) => {
 
   return (
     <div 
-      ref={combinedRefs}
-      style={style} // Sürükleme stili
+      ref={combinedRefs} 
+      style={style} 
       className={`
-        flex flex-col w-72 md:w-80 max-h-[90vh]
-        bg-gray-950 rounded-lg // Resimdeki gibi koyu ve sade arka plan
+        flex flex-col max-h-[90vh]
+        bg-gray-950 rounded-lg
+        
+        /* DEĞİŞİKLİK: 
+          - Kolon genişliği mobil için daraltıldı ('w-64')
+          - Ekran büyüdükçe kademeli olarak genişletildi.
+        */
+        w-64 sm:w-72 md:w-80
+        
         ${isDragging ? 'opacity-50' : 'opacity-100'}
-        ${isOver ? 'ring-2 ring-teal-500' : ''} // Görev üzerine gelince halka
+        ${isOver ? 'ring-2 ring-teal-500' : ''}
       `}
     >
+      {/* Kolon Başlığı */}
       <h3 
-        {...attributes} 
-        {...listeners} 
+        {...attributes}
+        {...listeners}
         className="flex items-center justify-between p-4 text-lg font-bold text-white cursor-grab active:cursor-grabbing"
       >
         <span className="flex items-center gap-2">
           <span className={`px-2 py-0.5 rounded-md text-xs font-medium text-white ${column.tagColor}`}>
             {column.title}
           </span>
-          {/* Görev Sayısı */}
           <span className="text-sm font-normal text-gray-400">
             {column.tasks.length}
           </span>
@@ -117,6 +119,7 @@ export const Column = ({ column }) => {
         </SortableContext>
       </div>
 
+      {/* Görev Ekleme UI Alanı */}
       <div className="p-4 pt-2 mt-auto">
         {isAddingTask ? (
           <div className="flex flex-col gap-2">
