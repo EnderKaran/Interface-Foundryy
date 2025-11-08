@@ -3,16 +3,17 @@ import { motion } from "framer-motion";
 import { Link } from 'react-router-dom'; 
 import { BentoGrid, BentoGridItem } from "../components/ui/bento-grid";
 
+// Tüm görseller için importlar
 import efektliCardSayfasi from '../assets/3d-efektli-card-sayfasi.png';
 import productConfiguratorPage from '../assets/product-configurator-page.png';
 import aiPage from '../assets/ai-page.png';
 import shoppingcartPage from '../assets/shopping-cart-page.png';
-import kanbanPage from '../assets/kanban-sayfasi.png'
+import kanbanPage from '../assets/kanban-sayfasi.png'; // Kanban görseli
 
 const components = [
   {
     title: "3D Efektli Kart",
-    description: "Fare hareketini takip ederek derinlik hissi veren, göz alıcı bir kart bileşeni.",
+    description: "Fare hareketini takip eden derinlik (parallax) etkili kartlar.",
     header: (
         <img 
             src={efektliCardSayfasi} 
@@ -24,11 +25,36 @@ const components = [
     link: "/component/3d-card", 
   },
   {
-    title: "İnteraktif Ürün Konfigüratörü",
-    description: "Kullanıcıların bir ürünü 3D olarak döndürmesine ve renklerini canlı olarak değiştirmesine olanak tanır.",
+    title: "Dinamik Alışveriş Sepeti",
+    description: "React Context ve Framer Motion ile akıcı bir sepet deneyimi.",
     header: (
         <img 
-            // DÜZELTME: Doğru değişken adı kullanıldı.
+            src={shoppingcartPage} 
+            alt="Alışveriş Sepeti Önizleme"
+            className="object-cover w-full h-full rounded-xl"
+        />
+    ),
+    className: "md:col-span-1",
+    link: "/component/shopping-cart", 
+  },
+  {
+    title: "Dinamik Kanban Panosu",
+    description: "Görevleri ve kolonları sürükleyip bırakarak yeniden sıralayın.",
+    header: (
+        <img 
+            src={kanbanPage} 
+            alt="Kanban Panosu Önizleme"
+            className="object-cover w-full h-full rounded-xl"
+        />
+    ),
+    className: "md:col-span-1",
+    link: "/component/kanban-board", 
+  },
+  {
+    title: "İnteraktif Ürün Konfigüratörü",
+    description: "React Three Fiber ile 3D modelin renklerini canlı değiştirin.",
+    header: (
+        <img 
             src={productConfiguratorPage} 
             alt="Ürün Konfigüratör Önizleme"
             className="object-cover w-full h-full rounded-xl"
@@ -39,29 +65,16 @@ const components = [
   },
   {
     title: "AI Destekli Arama",
-    description: "Doğal dil işleme kullanarak anlamsal arama yapan akıllı bir arama çubuğu.",
+    description: "Google Gemini API'si ile doğal dil anlamsal arama.",
     header: (
         <img 
             src={aiPage} 
-            alt="Ürün Konfigüratör Önizleme"
+            alt="AI Arama Önizleme"
             className="object-cover w-full h-full rounded-xl"
         />
     ),
-    className: "md:col-span-2",
+    className: "md:col-span-1", 
     link: "/component/ai-search", 
-  },
-  {
-    title: "Dinamik Alışveriş Sepeti",
-    description: "Modern animasyonlar ve anlık durum güncellemeleri ile akıcı bir kullanıcı deneyimi sunar.",
-    header: (
-        <img 
-            src={shoppingcartPage} 
-            alt="Ürün Konfigüratör Önizleme"
-            className="object-cover w-full h-full rounded-xl"
-        />
-    ),
-    className: "md:col-span-1",
-    link: "/component/shopping-cart", 
   },
 ];
 
