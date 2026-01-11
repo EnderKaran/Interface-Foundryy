@@ -1,9 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Link bileşenini import ettik
+import { Link } from 'react-router-dom';
 import AudioVisualizer from '../components/AudioVisualizer';
+import { SiStorybook } from "react-icons/si";
 
 const AudioVisualizerPage = () => {
-  return (
+  
+    const storybookUrl = `${import.meta.env.VITE_STORYBOOK_URL}/?path=/docs/sayfalar-audio-visualizer-sayfası--docs`;
+  
+    return (
     <div className="relative min-h-screen px-4 py-8 text-white bg-black">
       
       {/* --- Geri Dön Butonu --- */}
@@ -23,7 +27,12 @@ const AudioVisualizerPage = () => {
           </svg>
           Anasayfaya Dön
         </Link>
-      </div>
+          </div>
+          
+        <a href={storybookUrl} target="_blank" rel="noopener noreferrer" className="absolute z-20 flex items-center gap-2 px-4 py-2 text-white transition-colors bg-gray-800 rounded-lg top-6 right-6 md:top-8 md:right-8 hover:bg-gray-700" title="Storybook'u Aç">
+                    <SiStorybook className="text-xl text-pink-500" />
+                    <span className="hidden sm:inline">Storybook</span>
+              </a>
 
       <div className="mx-auto space-y-12 max-w-7xl">
         
