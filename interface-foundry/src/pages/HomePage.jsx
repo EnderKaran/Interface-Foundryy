@@ -120,7 +120,7 @@ const components = [
         </div>
     ),
     className: "md:col-span-2",
-    link: "/audio-visualizer", 
+    link: "/component/audio-visualizer", 
   },
 ];
 
