@@ -19,6 +19,7 @@ import { CommandPalette } from './components/ui/CommandPalette';
 import { useGlobalHotKey } from './hooks/useGlobalHotKey';
 import { FaSearch } from 'react-icons/fa'; //Arama ikonu
 import AudioVisualizerPage from './pages/AudioVisualizerPage';
+import MultiStepFormPage from './pages/MultiStepFormPage';
 
 import './App.css';
 
@@ -54,6 +55,7 @@ const AppContent = () => {
         <Route path="/component/shopping-cart" element={<ShoppingCartPage />} /> 
         <Route path="/component/kanban-board" element={<KanbanPage />} /> 
         <Route path="/component/audio-visualizer" element={<AudioVisualizerPage />} />
+        <Route path="/component/multi-step-form" element={<MultiStepFormPage />} />
       </Routes>
     </BrowserRouter>
   );

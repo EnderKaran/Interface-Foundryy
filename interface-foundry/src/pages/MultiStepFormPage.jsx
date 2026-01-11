@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MultiStepForm from '../components/MultiStepForm';
+import { SiStorybook } from "react-icons/si";
 
 const MultiStepFormPage = () => {
+
+    const storybookUrl = `${import.meta.env.VITE_STORYBOOK_URL}/?path=/docs/sayfalar-çok-adımlı-form-sayfası--varsayilan`;
+    
   return (
     <div className="relative flex flex-col min-h-screen px-4 py-8 text-white bg-black">
       
@@ -22,7 +26,12 @@ const MultiStepFormPage = () => {
           </svg>
           Anasayfaya Dön
         </Link>
-      </div>
+          </div>
+          
+        <a href={storybookUrl} target="_blank" rel="noopener noreferrer" className="absolute z-20 flex items-center gap-2 px-4 py-2 text-white transition-colors bg-gray-800 rounded-lg top-6 right-6 md:top-8 md:right-8 hover:bg-gray-700" title="Storybook'u Aç">
+                            <SiStorybook className="text-xl text-pink-500" />
+                            <span className="hidden sm:inline">Storybook</span>
+                      </a>
 
       {/* Sayfa İçeriği */}
       <div className="flex flex-col items-center justify-center flex-1 space-y-8">
