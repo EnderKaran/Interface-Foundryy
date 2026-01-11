@@ -18,6 +18,7 @@ import { KanbanProvider } from './context/KanbanContext';
 import { CommandPalette } from './components/ui/CommandPalette';
 import { useGlobalHotKey } from './hooks/useGlobalHotKey';
 import { FaSearch } from 'react-icons/fa'; //Arama ikonu
+import AudioVisualizerPage from './pages/AudioVisualizerPage';
 
 import './App.css';
 
@@ -52,6 +53,7 @@ const AppContent = () => {
         <Route path="/component/ai-search" element={<AISearchPage />} />
         <Route path="/component/shopping-cart" element={<ShoppingCartPage />} /> 
         <Route path="/component/kanban-board" element={<KanbanPage />} /> 
+        <Route path="/component/audio-visualizer" element={<AudioVisualizerPage />} />
       </Routes>
     </BrowserRouter>
   );
